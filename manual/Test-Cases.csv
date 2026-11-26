@@ -1,0 +1,51 @@
+﻿ID,Module,Scenario,Test Data / Action,Expected Result,Priority,Scope,Actual Result,Status
+LOGIN-01,Login,เข้าสู่ระบบ admin ถูกต้อง,admin / Demo123!,เข้าสู่ระบบสำเร็จ,High,Local demo,,Not Run
+LOGIN-02,Login,เข้าสู่ระบบ staff ถูกต้อง,staff / Demo123!,เข้าสู่ระบบสำเร็จ,High,Local demo,,Not Run
+LOGIN-03,Login,รหัสผ่านผิด,admin / wrong,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,,Not Run
+LOGIN-04,Login,ชื่อผู้ใช้ผิด,unknown / Demo123!,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,,Not Run
+LOGIN-05,Login,ชื่อผู้ใช้ว่าง,เว้น username,แจ้งกรอกข้อมูล,High,Local demo,,Not Run
+LOGIN-06,Login,รหัสผ่านว่าง,เว้น password,แจ้งกรอกข้อมูล,High,Local demo,,Not Run
+LOGIN-07,Login,ตัวพิมพ์ชื่อผู้ใช้ต่างกัน,ADMIN / Demo123!,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,,Not Run
+LOGIN-08,Login,ส่ง JSON ไม่ถูกต้อง,POST /api/login ด้วย JSON เสีย,HTTP 400,High,Local demo,,Not Run
+LOGIN-09,Login,รหัสผ่านถูกซ่อน,พิมพ์รหัสผ่าน,แสดงเป็นอักขระปิดบัง,High,Local demo,,Not Run
+LOGIN-10,Login,ออกจากระบบ,กด Logout,session ถูกยกเลิก,High,Future HRMS,,Not Run
+EMPLOYEE-01,Employee,เพิ่มพนักงาน,ข้อมูลครบ,บันทึกสำเร็จ,Medium,Future HRMS,,Not Run
+EMPLOYEE-02,Employee,เพิ่มรหัสซ้ำ,รหัสเดิม,ปฏิเสธข้อมูลซ้ำ,Medium,Future HRMS,,Not Run
+EMPLOYEE-03,Employee,ชื่อว่าง,ไม่กรอกชื่อ,แจ้งข้อมูลจำเป็น,Medium,Future HRMS,,Not Run
+EMPLOYEE-04,Employee,แก้ไขชื่อ,ชื่อใหม่,ข้อมูลเปลี่ยน,Medium,Future HRMS,,Not Run
+EMPLOYEE-05,Employee,ค้นหารหัส,รหัสที่มี,พบพนักงาน,Medium,Future HRMS,,Not Run
+EMPLOYEE-06,Employee,ค้นหาไม่พบ,รหัสไม่มี,แสดงรายการว่าง,Medium,Future HRMS,,Not Run
+EMPLOYEE-07,Employee,กรองแผนก,IT,แสดงเฉพาะ IT,Medium,Future HRMS,,Not Run
+EMPLOYEE-08,Employee,ลบพนักงาน,รหัสที่มี,ไม่พบหลังลบ,Medium,Future HRMS,,Not Run
+EMPLOYEE-09,Employee,อ่านรายการ,admin GET /api/employees,HTTP 200 และ 2 รายการ,Medium,Local demo,,Not Run
+EMPLOYEE-10,Employee,ข้อมูลภาษาไทย,ชื่อภาษาไทย,บันทึกและแสดงถูกต้อง,Medium,Future HRMS,,Not Run
+LEAVE-01,Leave,ยื่นลา,วันลาในอนาคต,สร้างคำขอ,Medium,Future HRMS,,Not Run
+LEAVE-02,Leave,วันสิ้นสุดก่อนเริ่ม,ช่วงวันผิด,ปฏิเสธ,Medium,Future HRMS,,Not Run
+LEAVE-03,Leave,ลาเกินสิทธิ์,จำนวนวันเกิน,ปฏิเสธ,Medium,Future HRMS,,Not Run
+LEAVE-04,Leave,ไม่ระบุประเภท,ประเภทว่าง,แจ้งข้อมูลจำเป็น,Medium,Future HRMS,,Not Run
+LEAVE-05,Leave,อนุมัติ,ผู้มีสิทธิ์,สถานะอนุมัติ,Medium,Future HRMS,,Not Run
+LEAVE-06,Leave,ปฏิเสธ,ผู้มีสิทธิ์,สถานะปฏิเสธ,Medium,Future HRMS,,Not Run
+LEAVE-07,Leave,ยกเลิก,คำขอรออนุมัติ,สถานะยกเลิก,Medium,Future HRMS,,Not Run
+LEAVE-08,Leave,ลาซ้ำ,ช่วงวันเดิม,ปฏิเสธ,Medium,Future HRMS,,Not Run
+LEAVE-09,Leave,ดูประวัติ,บัญชีพนักงาน,แสดงประวัติตนเอง,Medium,Future HRMS,,Not Run
+LEAVE-10,Leave,ตรวจยอดวันลา,อนุมัติ 1 วัน,ยอดลด 1 วัน,Medium,Future HRMS,,Not Run
+ROLE-01,Role,ไม่ล็อกอินอ่านพนักงาน,GET /api/employees,HTTP 401,High,Local demo,,Not Run
+ROLE-02,Role,staff อ่านพนักงาน,staff GET /api/employees,HTTP 403,High,Local demo,,Not Run
+ROLE-03,Role,admin อ่านพนักงาน,admin GET /api/employees,HTTP 200,High,Local demo,,Not Run
+ROLE-04,Role,cookie ปลอม,sid=invalid,HTTP 401,High,Local demo,,Not Run
+ROLE-05,Role,cookie HttpOnly,ตรวจ Set-Cookie,มี HttpOnly,High,Local demo,,Not Run
+ROLE-06,Role,cookie SameSite,ตรวจ Set-Cookie,มี SameSite=Strict,High,Local demo,,Not Run
+ROLE-07,Role,แก้ไขสิทธิ์,admin เปลี่ยน role,สิทธิ์เปลี่ยนตามกำหนด,High,Future HRMS,,Not Run
+ROLE-08,Role,staff แก้ไขสิทธิ์,staff เรียกฟังก์ชัน admin,ปฏิเสธ,High,Future HRMS,,Not Run
+ROLE-09,Role,session หมดอายุ,ใช้ session หมดอายุ,ปฏิเสธ,High,Future HRMS,,Not Run
+ROLE-10,Role,เข้าหน้าจำกัดสิทธิ์,staff เปิดหน้า admin,ปฏิเสธ,High,Future HRMS,,Not Run
+REPORT-01,Report,รายงานพนักงาน,ข้อมูล 2 คน,จำนวนตรงฐานข้อมูล,Medium,Future HRMS,,Not Run
+REPORT-02,Report,กรองแผนก,IT,แสดงเฉพาะ IT,Medium,Future HRMS,,Not Run
+REPORT-03,Report,กรองช่วงวัน,ช่วงที่มีข้อมูล,ข้อมูลตรงช่วง,Medium,Future HRMS,,Not Run
+REPORT-04,Report,ช่วงวันผิด,วันสิ้นสุดก่อนเริ่ม,แจ้งข้อผิดพลาด,Medium,Future HRMS,,Not Run
+REPORT-05,Report,ส่งออก CSV,ข้อมูลที่มี,ไฟล์เปิดได้,Medium,Future HRMS,,Not Run
+REPORT-06,Report,หัวคอลัมน์,ส่งออก CSV,หัวคอลัมน์ถูกต้อง,Medium,Future HRMS,,Not Run
+REPORT-07,Report,ภาษาไทย,ส่งออกชื่อไทย,อักขระไม่เสีย,Medium,Future HRMS,,Not Run
+REPORT-08,Report,ไม่มีข้อมูล,ตัวกรองไม่พบ,แสดงรายการว่าง,Medium,Future HRMS,,Not Run
+REPORT-09,Report,สิทธิ์รายงาน,staff เปิดรายงาน admin,ปฏิเสธ,Medium,Future HRMS,,Not Run
+REPORT-10,Report,ยอดรวม,เทียบรายการกับยอดรวม,จำนวนตรงกัน,Medium,Future HRMS,,Not Run
