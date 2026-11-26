@@ -1,0 +1,1 @@
+module.exports={testDir:'./automation',use:{baseURL:'http://localhost:3000',browserName:'chromium'},webServer:{command:'node app.js',url:'http://localhost:3000/health',reuseExistingServer:false},reporter:[['list'],['html',{open:'never'}]]};

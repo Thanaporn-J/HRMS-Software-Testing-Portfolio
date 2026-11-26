@@ -1,0 +1,12 @@
+{
+  "name": "hrms-testing-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.1"
+  }
+}
