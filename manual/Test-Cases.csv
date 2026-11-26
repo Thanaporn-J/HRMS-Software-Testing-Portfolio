@@ -1,51 +1,55 @@
-﻿ID,Module,Scenario,Test Data / Action,Expected Result,Priority,Scope,Actual Result,Status
-LOGIN-01,Login,เข้าสู่ระบบ admin ถูกต้อง,admin / Demo123!,เข้าสู่ระบบสำเร็จ,High,Local demo,,Not Run
-LOGIN-02,Login,เข้าสู่ระบบ staff ถูกต้อง,staff / Demo123!,เข้าสู่ระบบสำเร็จ,High,Local demo,,Not Run
-LOGIN-03,Login,รหัสผ่านผิด,admin / wrong,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,,Not Run
-LOGIN-04,Login,ชื่อผู้ใช้ผิด,unknown / Demo123!,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,,Not Run
-LOGIN-05,Login,ชื่อผู้ใช้ว่าง,เว้น username,แจ้งกรอกข้อมูล,High,Local demo,,Not Run
-LOGIN-06,Login,รหัสผ่านว่าง,เว้น password,แจ้งกรอกข้อมูล,High,Local demo,,Not Run
-LOGIN-07,Login,ตัวพิมพ์ชื่อผู้ใช้ต่างกัน,ADMIN / Demo123!,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,,Not Run
-LOGIN-08,Login,ส่ง JSON ไม่ถูกต้อง,POST /api/login ด้วย JSON เสีย,HTTP 400,High,Local demo,,Not Run
-LOGIN-09,Login,รหัสผ่านถูกซ่อน,พิมพ์รหัสผ่าน,แสดงเป็นอักขระปิดบัง,High,Local demo,,Not Run
-LOGIN-10,Login,ออกจากระบบ,กด Logout,session ถูกยกเลิก,High,Future HRMS,,Not Run
-EMPLOYEE-01,Employee,เพิ่มพนักงาน,ข้อมูลครบ,บันทึกสำเร็จ,Medium,Future HRMS,,Not Run
-EMPLOYEE-02,Employee,เพิ่มรหัสซ้ำ,รหัสเดิม,ปฏิเสธข้อมูลซ้ำ,Medium,Future HRMS,,Not Run
-EMPLOYEE-03,Employee,ชื่อว่าง,ไม่กรอกชื่อ,แจ้งข้อมูลจำเป็น,Medium,Future HRMS,,Not Run
-EMPLOYEE-04,Employee,แก้ไขชื่อ,ชื่อใหม่,ข้อมูลเปลี่ยน,Medium,Future HRMS,,Not Run
-EMPLOYEE-05,Employee,ค้นหารหัส,รหัสที่มี,พบพนักงาน,Medium,Future HRMS,,Not Run
-EMPLOYEE-06,Employee,ค้นหาไม่พบ,รหัสไม่มี,แสดงรายการว่าง,Medium,Future HRMS,,Not Run
-EMPLOYEE-07,Employee,กรองแผนก,IT,แสดงเฉพาะ IT,Medium,Future HRMS,,Not Run
-EMPLOYEE-08,Employee,ลบพนักงาน,รหัสที่มี,ไม่พบหลังลบ,Medium,Future HRMS,,Not Run
-EMPLOYEE-09,Employee,อ่านรายการ,admin GET /api/employees,HTTP 200 และ 2 รายการ,Medium,Local demo,,Not Run
-EMPLOYEE-10,Employee,ข้อมูลภาษาไทย,ชื่อภาษาไทย,บันทึกและแสดงถูกต้อง,Medium,Future HRMS,,Not Run
-LEAVE-01,Leave,ยื่นลา,วันลาในอนาคต,สร้างคำขอ,Medium,Future HRMS,,Not Run
-LEAVE-02,Leave,วันสิ้นสุดก่อนเริ่ม,ช่วงวันผิด,ปฏิเสธ,Medium,Future HRMS,,Not Run
-LEAVE-03,Leave,ลาเกินสิทธิ์,จำนวนวันเกิน,ปฏิเสธ,Medium,Future HRMS,,Not Run
-LEAVE-04,Leave,ไม่ระบุประเภท,ประเภทว่าง,แจ้งข้อมูลจำเป็น,Medium,Future HRMS,,Not Run
-LEAVE-05,Leave,อนุมัติ,ผู้มีสิทธิ์,สถานะอนุมัติ,Medium,Future HRMS,,Not Run
-LEAVE-06,Leave,ปฏิเสธ,ผู้มีสิทธิ์,สถานะปฏิเสธ,Medium,Future HRMS,,Not Run
-LEAVE-07,Leave,ยกเลิก,คำขอรออนุมัติ,สถานะยกเลิก,Medium,Future HRMS,,Not Run
-LEAVE-08,Leave,ลาซ้ำ,ช่วงวันเดิม,ปฏิเสธ,Medium,Future HRMS,,Not Run
-LEAVE-09,Leave,ดูประวัติ,บัญชีพนักงาน,แสดงประวัติตนเอง,Medium,Future HRMS,,Not Run
-LEAVE-10,Leave,ตรวจยอดวันลา,อนุมัติ 1 วัน,ยอดลด 1 วัน,Medium,Future HRMS,,Not Run
-ROLE-01,Role,ไม่ล็อกอินอ่านพนักงาน,GET /api/employees,HTTP 401,High,Local demo,,Not Run
-ROLE-02,Role,staff อ่านพนักงาน,staff GET /api/employees,HTTP 403,High,Local demo,,Not Run
-ROLE-03,Role,admin อ่านพนักงาน,admin GET /api/employees,HTTP 200,High,Local demo,,Not Run
-ROLE-04,Role,cookie ปลอม,sid=invalid,HTTP 401,High,Local demo,,Not Run
-ROLE-05,Role,cookie HttpOnly,ตรวจ Set-Cookie,มี HttpOnly,High,Local demo,,Not Run
-ROLE-06,Role,cookie SameSite,ตรวจ Set-Cookie,มี SameSite=Strict,High,Local demo,,Not Run
-ROLE-07,Role,แก้ไขสิทธิ์,admin เปลี่ยน role,สิทธิ์เปลี่ยนตามกำหนด,High,Future HRMS,,Not Run
-ROLE-08,Role,staff แก้ไขสิทธิ์,staff เรียกฟังก์ชัน admin,ปฏิเสธ,High,Future HRMS,,Not Run
-ROLE-09,Role,session หมดอายุ,ใช้ session หมดอายุ,ปฏิเสธ,High,Future HRMS,,Not Run
-ROLE-10,Role,เข้าหน้าจำกัดสิทธิ์,staff เปิดหน้า admin,ปฏิเสธ,High,Future HRMS,,Not Run
-REPORT-01,Report,รายงานพนักงาน,ข้อมูล 2 คน,จำนวนตรงฐานข้อมูล,Medium,Future HRMS,,Not Run
-REPORT-02,Report,กรองแผนก,IT,แสดงเฉพาะ IT,Medium,Future HRMS,,Not Run
-REPORT-03,Report,กรองช่วงวัน,ช่วงที่มีข้อมูล,ข้อมูลตรงช่วง,Medium,Future HRMS,,Not Run
-REPORT-04,Report,ช่วงวันผิด,วันสิ้นสุดก่อนเริ่ม,แจ้งข้อผิดพลาด,Medium,Future HRMS,,Not Run
-REPORT-05,Report,ส่งออก CSV,ข้อมูลที่มี,ไฟล์เปิดได้,Medium,Future HRMS,,Not Run
-REPORT-06,Report,หัวคอลัมน์,ส่งออก CSV,หัวคอลัมน์ถูกต้อง,Medium,Future HRMS,,Not Run
-REPORT-07,Report,ภาษาไทย,ส่งออกชื่อไทย,อักขระไม่เสีย,Medium,Future HRMS,,Not Run
-REPORT-08,Report,ไม่มีข้อมูล,ตัวกรองไม่พบ,แสดงรายการว่าง,Medium,Future HRMS,,Not Run
-REPORT-09,Report,สิทธิ์รายงาน,staff เปิดรายงาน admin,ปฏิเสธ,Medium,Future HRMS,,Not Run
-REPORT-10,Report,ยอดรวม,เทียบรายการกับยอดรวม,จำนวนตรงกัน,Medium,Future HRMS,,Not Run
+ID,Module,Scenario,Test Data / Action,Expected Result,Priority,Scope,Actual Result,Status
+LOGIN-01,Login,เข้าสู่ระบบ admin ถูกต้อง,admin / Demo123!,เข้าสู่ระบบสำเร็จ,High,Local demo,แสดง Login successful (HTTP 200),Pass
+LOGIN-02,Login,เข้าสู่ระบบ staff ถูกต้อง,staff / Demo123!,เข้าสู่ระบบสำเร็จ,High,Local demo,แสดง Login successful (HTTP 200),Pass
+LOGIN-03,Login,รหัสผ่านผิด,admin / wrong,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,แสดง Invalid credentials (HTTP 401),Pass
+LOGIN-04,Login,ชื่อผู้ใช้ผิด,unknown / Demo123!,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,แสดง Invalid credentials (HTTP 401),Pass
+LOGIN-05,Login,ชื่อผู้ใช้ว่าง,เว้น username,แจ้งกรอกข้อมูล,High,Local demo,เบราว์เซอร์แจ้ง required (valueMissing=true) และไม่ส่งฟอร์ม,Pass
+LOGIN-06,Login,รหัสผ่านว่าง,เว้น password,แจ้งกรอกข้อมูล,High,Local demo,เบราว์เซอร์แจ้ง required (valueMissing=true) และไม่ส่งฟอร์ม,Pass
+LOGIN-07,Login,ตัวพิมพ์ชื่อผู้ใช้ต่างกัน,ADMIN / Demo123!,ปฏิเสธการเข้าสู่ระบบ,High,Local demo,แสดง Invalid credentials (HTTP 401),Pass
+LOGIN-08,Login,ส่ง JSON ไม่ถูกต้อง,POST /api/login ด้วย JSON เสีย,HTTP 400,High,Local demo,ได้รับ HTTP 400 Invalid JSON,Pass
+LOGIN-09,Login,รหัสผ่านถูกซ่อน,พิมพ์รหัสผ่าน,แสดงเป็นอักขระปิดบัง,High,Local demo,ช่องรหัสผ่านมี type=password และปิดบังอักขระ,Pass
+LOGIN-10,Login,ออกจากระบบ,กด Logout,session ถูกยกเลิก,High,Local demo,POST /api/logout ได้ 200 และเรียก /api/employees ต่อได้ HTTP 401,Pass
+EMPLOYEE-01,Employee,เพิ่มพนักงาน,ข้อมูลครบ,บันทึกสำเร็จ,Medium,Local demo,POST /api/employees ได้ HTTP 201 และบันทึกชื่อ Anan สำเร็จ,Pass
+EMPLOYEE-02,Employee,เพิ่มรหัสซ้ำ,รหัสเดิม,ปฏิเสธข้อมูลซ้ำ,Medium,Local demo,POST /api/employees ด้วย id=1 ซ้ำได้ HTTP 409,Pass
+EMPLOYEE-03,Employee,ชื่อว่าง,ไม่กรอกชื่อ,แจ้งข้อมูลจำเป็น,Medium,Local demo,POST /api/employees ด้วยชื่อว่างได้ HTTP 400,Pass
+EMPLOYEE-04,Employee,แก้ไขชื่อ,ชื่อใหม่,ข้อมูลเปลี่ยน,Medium,Local demo,PUT /api/employees/3 ได้ HTTP 200 และชื่อเปลี่ยนเป็น Anan Updated,Pass
+EMPLOYEE-05,Employee,ค้นหารหัส,รหัสที่มี,พบพนักงาน,Medium,Local demo,GET /api/employees?id=1 ได้ HTTP 200 พบ Somchai 1 รายการ,Pass
+EMPLOYEE-06,Employee,ค้นหาไม่พบ,รหัสไม่มี,แสดงรายการว่าง,Medium,Local demo,GET /api/employees?id=999 ได้ HTTP 200 และรายการว่าง 0 รายการ,Pass
+EMPLOYEE-07,Employee,กรองแผนก,IT,แสดงเฉพาะ IT,Medium,Local demo,GET /api/employees?department=IT แสดงเฉพาะพนักงานแผนก IT,Pass
+EMPLOYEE-08,Employee,ลบพนักงาน,รหัสที่มี,ไม่พบหลังลบ,Medium,Local demo,DELETE /api/employees/3 ได้ HTTP 200 และค้นหาซ้ำไม่พบข้อมูล,Pass
+EMPLOYEE-09,Employee,อ่านรายการ,admin GET /api/employees,HTTP 200 และ 2 รายการ,Medium,Local demo,ได้รับ HTTP 200 และรายชื่อพนักงาน 2 รายการ (Somchai และ Suda),Pass
+EMPLOYEE-10,Employee,ข้อมูลภาษาไทย,ชื่อภาษาไทย,บันทึกและแสดงถูกต้อง,Medium,Local demo,บันทึกและอ่านชื่อ สมหญิง ใจดี กลับมาได้ถูกต้องไม่เพี้ยน,Pass
+LEAVE-01,Leave,ยื่นลา,วันลาในอนาคต,สร้างคำขอ,Medium,Local demo,POST /api/leaves ได้ HTTP 201 สถานะ Pending,Pass
+LEAVE-02,Leave,วันสิ้นสุดก่อนเริ่ม,ช่วงวันผิด,ปฏิเสธ,Medium,Local demo,POST /api/leaves ช่วงวันผิดได้ HTTP 400,Pass
+LEAVE-03,Leave,ลาเกินสิทธิ์,จำนวนวันเกิน,ปฏิเสธ,Medium,Local demo,POST /api/leaves เกินยอดวันลาคงเหลือได้ HTTP 400,Pass
+LEAVE-04,Leave,ไม่ระบุประเภท,ประเภทว่าง,แจ้งข้อมูลจำเป็น,Medium,Local demo,POST /api/leaves ไม่ระบุประเภทได้ HTTP 400,Pass
+LEAVE-05,Leave,อนุมัติ,ผู้มีสิทธิ์,สถานะอนุมัติ,Medium,Local demo,admin เรียก PUT /api/leaves/1/approve ได้ HTTP 200 สถานะ Approved,Pass
+LEAVE-06,Leave,ปฏิเสธ,ผู้มีสิทธิ์,สถานะปฏิเสธ,Medium,Local demo,admin เรียก PUT /api/leaves/:id/reject ได้ HTTP 200 สถานะ Rejected,Pass
+LEAVE-07,Leave,ยกเลิก,คำขอรออนุมัติ,สถานะยกเลิก,Medium,Local demo,staff เรียก PUT /api/leaves/:id/cancel ได้ HTTP 200 สถานะ Cancelled,Pass
+LEAVE-08,Leave,ลาซ้ำ,ช่วงวันเดิม,ปฏิเสธ,Medium,Local demo,POST /api/leaves วันซ้ำกับใบลาเดิมได้ HTTP 409,Pass
+LEAVE-09,Leave,ดูประวัติ,บัญชีพนักงาน,แสดงประวัติตนเอง,Medium,Local demo,staff เรียก GET /api/leaves แสดงเฉพาะรายการของตนเอง,Pass
+LEAVE-10,Leave,ตรวจยอดวันลา,อนุมัติ 1 วัน,ยอดลด 1 วัน,Medium,Local demo,หลังอนุมัติ 1 วัน ยอดวันลาคงเหลือลดจาก 5 เหลือ 4 วัน,Pass
+ROLE-01,Role,ไม่ล็อกอินอ่านพนักงาน,GET /api/employees,HTTP 401,High,Local demo,ได้รับ HTTP 401 Unauthorized,Pass
+ROLE-02,Role,staff อ่านพนักงาน,staff GET /api/employees,HTTP 403,High,Local demo,ได้รับ HTTP 403 Forbidden,Pass
+ROLE-03,Role,admin อ่านพนักงาน,admin GET /api/employees,HTTP 200,High,Local demo,ได้รับ HTTP 200 OK พร้อมข้อมูล 2 รายการ,Pass
+ROLE-04,Role,cookie ปลอม,sid=invalid,HTTP 401,High,Local demo,ได้รับ HTTP 401 Unauthorized,Pass
+ROLE-05,Role,cookie HttpOnly,ตรวจ Set-Cookie,มี HttpOnly,High,Local demo,Set-Cookie มีแฟลก HttpOnly,Pass
+ROLE-06,Role,cookie SameSite,ตรวจ Set-Cookie,มี SameSite=Strict,High,Local demo,Set-Cookie มีแฟลก SameSite=Strict,Pass
+ROLE-07,Role,แก้ไขสิทธิ์,admin เปลี่ยน role,สิทธิ์เปลี่ยนตามกำหนด,High,Local demo,admin เรียก PUT /api/roles/staff ได้ HTTP 200 เปลี่ยนสิทธิ์สำเร็จ,Pass
+ROLE-08,Role,staff แก้ไขสิทธิ์,staff เรียกฟังก์ชัน admin,ปฏิเสธ,High,Local demo,staff เรียก PUT /api/roles/staff ได้ HTTP 403 Forbidden,Pass
+ROLE-09,Role,session หมดอายุ,ใช้ session หมดอายุ,ปฏิเสธ,High,Local demo,ใช้ session ที่หมดอายุเรียก /api/employees ได้ HTTP 401 Unauthorized,Pass
+ROLE-10,Role,เข้าหน้าจำกัดสิทธิ์,staff เปิดหน้า admin,ปฏิเสธ,High,Local demo,staff เปิด GET /admin ได้ HTTP 403 Forbidden,Pass
+REPORT-01,Report,รายงานพนักงาน,ข้อมูล 2 คน,จำนวนตรงฐานข้อมูล,Medium,Local demo,GET /api/reports/employees ได้ HTTP 200 และ total=2,Pass
+REPORT-02,Report,กรองแผนก,IT,แสดงเฉพาะ IT,Medium,Local demo,GET /api/reports/employees?department=IT แสดงเฉพาะแผนก IT (1 รายการ),Pass
+REPORT-03,Report,กรองช่วงวัน,ช่วงที่มีข้อมูล,ข้อมูลตรงช่วง,Medium,Local demo,กรอง 2026-01-01 ถึง 2026-01-31 พบ Somchai ตรงช่วง,Pass
+REPORT-04,Report,ช่วงวันผิด,วันสิ้นสุดก่อนเริ่ม,แจ้งข้อผิดพลาด,Medium,Local demo,กรองวันสิ้นสุดก่อนวันเริ่มได้ HTTP 400,Pass
+REPORT-05,Report,ส่งออก CSV,ข้อมูลที่มี,ไฟล์เปิดได้,Medium,Local demo,GET /api/reports/employees?format=csv ได้ HTTP 200 Content-Type text/csv,Pass
+REPORT-06,Report,หัวคอลัมน์,ส่งออก CSV,หัวคอลัมน์ถูกต้อง,Medium,Local demo,บรรทัดแรกของ CSV คือ id,name,department,joinedDate ถูกต้อง,Pass
+REPORT-07,Report,ภาษาไทย,ส่งออกชื่อไทย,อักขระไม่เสีย,Medium,Local demo,CSV มี UTF-8 BOM และแสดงชื่อ สมชาย ภาษาไทย ถูกต้องไม่เพี้ยน,Pass
+REPORT-08,Report,ไม่มีข้อมูล,ตัวกรองไม่พบ,แสดงรายการว่าง,Medium,Local demo,กรองแผนกที่ไม่มีได้ HTTP 200 total=0 และรายการว่าง,Pass
+REPORT-09,Report,สิทธิ์รายงาน,staff เปิดรายงาน admin,ปฏิเสธ,Medium,Local demo,staff เรียก GET /api/reports/employees ได้ HTTP 403 Forbidden,Pass
+REPORT-10,Report,ยอดรวม,เทียบรายการกับยอดรวม,จำนวนตรงกัน,Medium,Local demo,ค่า total ตรงกับความยาวของ items ทุกกรณี,Pass
+BVA-01,Boundary,ขอบเขตวันลา (พอดีสิทธิ์ 10 วัน vs เกินสิทธิ์ 11 วัน),admin ยื่นลา 11 วัน และ 10 วัน,11 วันได้ HTTP 400 และ 10 วันได้ HTTP 201,High,Local demo,11 วันได้ HTTP 400 และ 10 วันได้ HTTP 201 ตรงตามขอบเขต,Pass
+BVA-02,Boundary,ขอบเขตชื่อพนักงาน (ช่องว่างล้วน),POST /api/employees ด้วย name="   ",ปฏิเสธ HTTP 400,Medium,Local demo,ได้รับ HTTP 400 Name is required,Pass
+BVA-03,Boundary,ขอบเขตรหัสพนักงาน (id <= 0),POST /api/employees ด้วย id=0,ปฏิเสธ HTTP 400,High,Local demo,ระบบตอบ HTTP 201 และบันทึกรหัส 0 ได้ (ดู BUG-001),Fail
+BVA-04,Boundary,ขอบเขตวันที่ลา (วันในอดีต),POST /api/leaves ด้วยวันที่ 2020-01-01,ปฏิเสธ HTTP 400,Medium,Local demo,ระบบตอบ HTTP 201 และสร้างใบลาย้อนหลังได้ (ดู BUG-002),Fail

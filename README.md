@@ -73,7 +73,7 @@
 | User Roles | การกำหนดสิทธิ์ผู้ใช้งาน |
 | Reports | การแสดงผลรายงาน |
 
-ระบบจำลองปัจจุบันรองรับ Login และการอ่านข้อมูลพนักงาน ส่วนโมดูลอื่นเป็นกรณีทดสอบที่ออกแบบไว้สำหรับพัฒนาต่อยอด
+ระบบจำลองปัจจุบันรองรับครบทั้ง 5 โมดูล (Login/Logout, Employee CRUD, Leave Management, Role & Session Expiry, และ Reports/CSV Export) และมีชุดทดสอบอัตโนมัติครอบคลุมทั้งหมด 50 กรณีทดสอบ
 
 ## 📁 โครงสร้างโปรเจกต์ (Project Structure)
 
@@ -152,15 +152,15 @@ sqlite3 -header -column hrms.db < sql/checks.sql
 | รายการ | สถานะ |
 |---|---|
 | Test Plan | จัดทำแล้ว |
-| Test Cases | ออกแบบแล้ว |
-| Bug Report | ตัวอย่างสถานการณ์สมมติ |
-| Automation Script | จัดทำแล้ว รอทดสอบ |
-| SQL Queries | จัดทำแล้ว |
-| API Collection | จัดทำแล้ว รอทดสอบ |
-| Performance Test | จัดทำแล้ว รอทดสอบ |
-| Test Summary Report | รอบันทึกผลจริง |
+| Test Cases | ทดสอบแล้ว (54 เคส: Pass 52, Fail 2 จาก Boundary Testing) |
+| Bug Report | พบ 2 Defect จริง (`BUG-001`, `BUG-002`) + 1 ตัวอย่างสมมติ |
+| Automation Script | ทดสอบแล้ว (Playwright 49 test cases: ผ่าน 47 + ยืนยัน Known Bug 2 ข้อด้วย `test.fail`) |
+| SQL Queries | ทดสอบแล้ว (SQLite ผ่าน 6/6 checks) |
+| API Collection | จัดทำแล้ว (ทดสอบเทียบเท่าผ่าน HTTP/Playwright แล้ว, พร้อม Import ใน Postman) |
+| Performance Test | ทดสอบ Smoke Load 50 requests แล้ว (Error 0%, p95 4.32 ms; มีไฟล์ `local.jmx` สำหรับ JMeter) |
+| Test Summary Report | บันทึกผลจริงและตาราง Defect ครบแล้ว |
 
-ยังไม่มีการสรุปผล Pass หรือ Fail จนกว่าจะดำเนินการทดสอบจริง
+สรุปผลทั้งหมดมาจากการรันทดสอบจริงบนระบบจำลอง Localhost
 
 ## 👩‍💻 ผู้จัดทำ (Portfolio Owner)
 
