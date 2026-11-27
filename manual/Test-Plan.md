@@ -1,7 +1,7 @@
 # แผนการทดสอบ HRMS
 วัตถุประสงค์: ตรวจสอบความถูกต้องของฟังก์ชัน ข้อมูล และสิทธิ์ผู้ใช้
 
-ขอบเขต: Login, Employee, Leave, Role, Report; ระบบจำลองปัจจุบันรองรับ Login และ API อ่านพนักงาน ส่วนอื่นเป็นกรณีทดสอบสำหรับระบบเป้าหมายในอนาคต
+ขอบเขต: Login/Logout, Employee CRUD, Leave Management, Role & Session Expiry, Reports/CSV Export และ Boundary Value Analysis (รวม 54 กรณีทดสอบบนระบบจำลอง Localhost)
 
 แนวทาง: Functional, Smoke, Regression, Exploratory, API, SQL และการตรวจสอบสิทธิ์
 
